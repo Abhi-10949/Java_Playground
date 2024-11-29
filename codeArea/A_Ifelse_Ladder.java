@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class A {
+public class  A_Ifelse_Ladder{
 public static void main(String[] args){
     System.out.println("Enter value of a, b, c:");
     Scanner sc = new Scanner(System.in);

@@ -3,23 +3,23 @@ import java.util.*;
 public class J5_Inputs {
     public static void main(String args[]){
         Scanner sc = new Scanner(System.in);
-        // String name = sc.nextLine();
-        // System.out.println(name);
+        // // String name = sc.nextLine();
+        // // System.out.println(name);
 
-        // int number = sc.nextInt();
-        // System.out.println(number);
+        // // int number = sc.nextInt();
+        // // System.out.println(number);
 
-        // float price= sc.nextFloat();
-        // System.out.println(price);
+        // // float price= sc.nextFloat();
+        // // System.out.println(price);
 
-        // double d= sc.nextDouble();
-        // System.out.println(d);
+        // // double d= sc.nextDouble();
+        // // System.out.println(d);
 
-        // boolean b= sc.nextBoolean();
-        // System.out.println(b);
+        // // boolean b= sc.nextBoolean();
+        // // System.out.println(b);
 
-        // short s = sc.nextShort();
-        // System.out.println(s);
+        // // short s = sc.nextShort();
+        // // System.out.println(s);
 
         float a= sc.nextFloat();
         float b= sc.nextFloat();
@@ -37,5 +37,14 @@ public class J5_Inputs {
         System.out.println(sum);  //sum of two no.
         System.out.println(product); //product of two no.
         System.out.println(areaOfCircle); //area of the circle.
+
+
+
+        //implicit conversion
+        // long i = 10 ;
+        // int d = i;
+        //Scanner sc = new Scanner (System.in);
+        // int f= sc.nextFloat();
+        // System.out.println(f);
     }    
 }

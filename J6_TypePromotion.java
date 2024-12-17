@@ -30,5 +30,9 @@ public class J6_TypePromotion {
         double result= a+b+c+d;
         System.out.println(result);
 
+        byte o= 10;
+        o=(byte)(o*2);
+        System.out.println(o);
+
     }
 }

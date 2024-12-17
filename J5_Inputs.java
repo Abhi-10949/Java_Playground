@@ -46,5 +46,15 @@ public class J5_Inputs {
         //Scanner sc = new Scanner (System.in);
         // int f= sc.nextFloat();
         // System.out.println(f);
+
+
+        //Type casting 
+        float f= 10.23f;
+        int i=(int)f;
+        System.out.println(i);
+
+        char ch='A';
+        int number = ch;
+        System.out.println(number);
     }    
 }

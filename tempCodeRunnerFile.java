@@ -1,3 +1,1 @@
-if(i == (10*i)){
-            //     break;
-            // }
+J30_Pattern

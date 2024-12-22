@@ -1,11 +1,10 @@
 import java.util.Scanner;
-
 public class J46_Pattern5 {
     //Hollow rectangle
     public static void hollow_rectangle(int totalRows, int totalCols){
-        for(int i =0 ; i <= totalRows ; i++){
-            for(int j = 0 ; j <= totalCols ; j++){
-                if(i == 0 || i == totalRows || j == 0 || j == totalCols){
+        for(int i =1 ; i <= totalRows ; i++){
+            for(int j = 1 ; j <= totalCols ; j++){
+                if(i == 1 || i == totalRows || j == 1 || j == totalCols){
                     System.out.print("$");
                 }
                 else{

@@ -1,1 +1,1 @@
-System.out.println(nonChangable);
+int index = linearSearch(menu, key);

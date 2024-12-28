@@ -13,7 +13,6 @@ public class J61_PairsArray{
         System.out.println("Total pairs: "+ tp);
     }
 
-
     public static void main(String args[]){
         int number[] = {2, 4,6,8,10,12};
         printPair(number);

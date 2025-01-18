@@ -25,7 +25,7 @@ public class J65_trappedWater {
         for(int i = 0 ; i<n ;i++){
             //waterlevel = min(leftmax bound, right max bound)
             int waterlevel = Math.min(leftmax[i], rightmax[i]);
-            //trapper water  = (waterLevel - height[i])
+            //trapped water  = (waterLevel - height[i])
 
             trappedRain += waterlevel - height[i];
         }

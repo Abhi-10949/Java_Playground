@@ -1,3 +1,3 @@
-if(!swapped){
-            //     break;
-            // }
+if(startRow==endRow){
+                //     break;
+                // }

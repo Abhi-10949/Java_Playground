@@ -2,7 +2,7 @@
 
 public class J97_Constructor {
     public static void main(String[] args) {
-        //constructor overloading but this is the example of Polymorphism
+        //constructor overloading but this is the example of Polymorphism 
         Student s1 = new Student();
 
         Student s2 = new Student("Abhishek");

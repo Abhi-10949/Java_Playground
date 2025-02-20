@@ -51,18 +51,33 @@ public class J106_Recursion {
         return fn;
     }
 
+    //To check whether the array is sorted or not
+    // T.C = O(N) and S.C = O(N) 
+    public static boolean isSorted(int arr[], int i){
+        //Base Case 
+        if(i == arr.length-1){
+            return true;
+        }
+        if(arr[i]>arr[i+1]){
+            return false;
+        }
+        return isSorted(arr, i+1);
+    }
+
     public static void main(String[] args) {
         int n = 25;
         // printDec(n); //Calling the function to the main function decreasing order
         // printInc(n);
         // System.out.println(factorial(n));
         // System.out.println(sum(n));
-        System.out.println(fibonacci(23)); // it calculated for the nth term eg.: 5
-        System.out.println(fibonacci(24));
-        System.out.println(fibonacci(25));
-        System.out.println(fibonacci(26));
-        System.out.println(fibonacci(27));
-        System.out.println(fibonacci(28));
+        // System.out.println(fibonacci(23)); // it calculated for the nth term eg.: 5
+        // System.out.println(fibonacci(24));
+        // System.out.println(fibonacci(25));
+        // System.out.println(fibonacci(26));
+        // System.out.println(fibonacci(27));
+        // System.out.println(fibonacci(28));
 
+        int arr[]={1,2,3,4};
+        System.out.println(isSorted(arr, 0));
     }
 }

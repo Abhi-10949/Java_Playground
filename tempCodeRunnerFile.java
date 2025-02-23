@@ -1,0 +1,1 @@
+nm2 = tillintProblem(n-2);

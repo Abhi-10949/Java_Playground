@@ -127,6 +127,91 @@ public class J106_Recursion {
         int totalWays = fnm1 + fnm2;
         return totalWays;
     }
+    // Removing the duplicates from the strings
+    public static void removeDuplicates(String str, int idx, StringBuilder newStr, boolean map[]){
+        //Base case 
+        if(idx == str.length()){
+            System.out.println(newStr);
+            return;
+        }
+        //kaam
+        char currChar = str.charAt(idx);
+        if(map[currChar-'a']==true){
+            removeDuplicates(str, idx+1, newStr, map);
+        }
+        else{
+            map[currChar -'a'] = true;
+            removeDuplicates(str, idx+1, newStr.append(currChar), map);
+        }
+    }
+    
+
+    //TO find the total number of ways of pairing of friends 
+    public static int friendsPair(int n){
+        //Base Case
+        if(n == 1 || n== 2){
+            return  n;
+        }
+
+        //Choice
+        int fnm1 = friendsPair(n-1);
+        int fnm2 = friendsPair(n-2);
+        int totalPair = (n-1)*fnm2;
+        // Total number of ways to pair
+        int totalWays = fnm1 + totalPair;
+        return totalWays;
+    }
+    //to print the binary string 
+    public static void printBinString(int n,int lastPlace, String str){
+        //Base Case 
+        if(n == 0){
+            System.out.println(str);
+            return;
+        }
+
+        //kaam
+        printBinString(n-1, 0, str+"0");
+        if(lastPlace ==0){
+            printBinString(n-1, 1, str+"1");
+        }
+    }
+
+    //To find the all the occurance of the given key index's in the array of size N
+    public static void occuranceKey(int key, int arr[], int i){
+        //Base Case
+        if(i == arr.length){
+            return ;
+        }
+
+        //kaam
+        if(arr[i]==key){
+            System.out.print(i+" ");
+        }
+        occuranceKey(key, arr, i+1);
+    }
+
+    //To convert the digit to character's (2019 -- two zero one nine)
+    public static void convertToWords(int num, String words[]){
+        //Base Case
+        if(num == 0){
+            return;
+        }
+        convertToWords(num /10, words);
+        System.out.print(words[num % 10]+" ");
+    }
+
+    // program to find Length of a String
+    public static int length(String str){
+        //Base Case 
+        if(str.length() == 0)
+        {
+            return 0;
+        }
+
+        return length(str.substring(1))+1;
+    }
+    // count of all contiguous substrings starting and ending with the same character.
+    
 
     public static void main(String[] args) {
        // int n = 25;
@@ -150,6 +235,24 @@ public class J106_Recursion {
 
         // System.out.println(power(2, 10));
         // System.out.println("Power of 2^5: "+optpamizedPower(2, 5));
-        System.out.println(tillintProblem(4));
-    }
+        // System.out.println(tillintProblem(4));
+
+        // String str = "appnnacollege";
+        // removeDuplicates(str, 0, new StringBuilder(""), new boolean[26]);
+
+        // System.out.println(friendsPair(3));
+        // printBinString(3, 0, "");
+
+        
+        // int arr[ ] = {3, 2, 4, 5, 6, 2, 7, 2, 2};
+        // occuranceKey(2, arr,0);
+        // System.out.println();
+
+        // String[] words = {"zero","one","two","three","four","five","six","seven","eight","nine"};
+        // convertToWords(2019, words);
+        // System.out.println();
+
+        String str = "abcde";
+        System.out.println(length(str));
+    }   
 }

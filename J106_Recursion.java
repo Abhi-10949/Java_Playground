@@ -211,7 +211,36 @@ public class J106_Recursion {
         return length(str.substring(1))+1;
     }
     // count of all contiguous substrings starting and ending with the same character.
+    public static int countSubstrs(String str, int i , int j, int n){
+        //base condition 
+        if(i==j ){
+            return 1; 
+        }
+        if(i>j){
+            return 0;
+        }
+
+        int result = countSubstrs(str, i+1, j, n-1)
+                    +countSubstrs(str, i, j-1, n-1)
+                    -countSubstrs(str, i+1, j-1, n-2);
+        if(str.charAt(i) == str.charAt(j)){
+            result++;
+        }
+        return result;
+    }
     
+    //Tower of Hanoi
+    static void towerOfHanoi(int n,char from_rod, char to_rod, char aux_rod){
+        //Base Case
+        if(n==0){
+            return ;
+        }
+
+        //kaam
+        towerOfHanoi(n-1, from_rod,  aux_rod, to_rod);
+        System.out.println("Move disk "+n+" from rod "+from_rod+" to rod "+to_rod);
+        towerOfHanoi(n-1, aux_rod, to_rod,from_rod);
+    }
 
     public static void main(String[] args) {
        // int n = 25;
@@ -252,7 +281,13 @@ public class J106_Recursion {
         // convertToWords(2019, words);
         // System.out.println();
 
-        String str = "abcde";
-        System.out.println(length(str));
+        // String str = "abcde";
+        // System.out.println(length(str));
+
+        // String str = "abcab";
+        // int n = str.length();
+        // System.out.println(countSubstrs(str, 0, n-1, n));
+        int n = 3;
+        towerOfHanoi(n, 'A', 'B', 'C');
     }   
 }

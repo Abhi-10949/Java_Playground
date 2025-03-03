@@ -1,1 +1,3 @@
-nm2 = tillintProblem(n-2);
+else{
+                //     si=mid+1;
+                // }

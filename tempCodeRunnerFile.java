@@ -1,1 +1,1 @@
-void 
+Solution is not possible.

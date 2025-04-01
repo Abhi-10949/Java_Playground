@@ -15,6 +15,7 @@ public class J119_ArrayList {
         list.add(5);
         list.add(6);
 
+        list.add(1,9); // O(n)
         System.out.println(list);
 
         //Get element 
@@ -26,7 +27,11 @@ public class J119_ArrayList {
         // System.out.println(list);
 
         // Set funtion
-        list.set(2, 10);
-        System.out.println(list);
+        // list.set(2, 10);
+        // System.out.println(list);
+
+        //contain elements return: true or false 
+        // System.out.println(list.contains(1));
+        // System.out.println(list.contains(11));
     }
 }

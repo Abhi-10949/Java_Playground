@@ -15,8 +15,13 @@ public class J119_ArrayList {
         list.add(5);
         list.add(6);
 
-        list.add(1,9); // O(n)
-        System.out.println(list);
+        // list.add(1,9); // O(n)
+        // System.out.println(list);
+
+        for(int i =list.size()-1;i>=0;i--){
+            System.out.print(list.get(i) + " ");
+        }
+        System.out.println();
 
         //Get element 
         // int element = list.get(2);

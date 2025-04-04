@@ -1,4 +1,3 @@
-()-1;i>=0;i--){
-        //     System.out.print(list.get(i) + " ");
-        // }
-        // System.out.println();
+mainlist.add(list1);
+        // mainlist.add(list2);
+        // mainlist.add(list3)

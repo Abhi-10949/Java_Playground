@@ -1,4 +1,8 @@
 
+
+
+
+
 public class J129_LinkedList_1st {
     public static class Node{
         int data;
@@ -151,32 +155,134 @@ public class J129_LinkedList_1st {
             return  healper(head, key);
         }
 
+        public void reverse(){  // T.C: O(n)
+            Node prev = null;
+            Node curr = tail = head;
+            Node next;
+
+            while(curr != null){
+                next  =  curr.next;
+                curr.next = prev;
+                prev = curr;
+                curr = next;
+            }
+            head = prev;
+        }
+
+        // To find and remove the nth node from end:
+        public void deleteNthfromEnd(int n){
+            // calculate size
+            int size = 0;
+            Node temp = head;
+            while(temp != null){
+                temp = temp.next;
+                size++;
+            }
+            // to delete head
+            if(n == size){
+                head = head.next;
+                return;
+            }
+
+            // we have to go to (size - n)
+            int i = 1;
+            int iToFind = size - n;
+            Node prev = head;
+            while(i<iToFind){
+                prev = prev.next;
+                i++;
+            }
+            prev.next = prev.next.next;
+            return;
+        }
+
+        // To check wheter the LL is palidrom or not :
+        // to find the midlle node:
+        public Node findMid(Node head){
+            Node slow = head;
+            Node fast = head;
+            while(fast != null && fast.next != null){
+                slow = slow.next; // +1
+                fast = fast.next.next; // +2
+            }
+            return slow;
+        }
+
+        public boolean  chackPalindrom(){
+            // base case
+            if(head == null || head.next == null){
+                return  true;
+            }
+
+            // step 1: To find the Middle Node
+            Node midNode = findMid(head);
+
+            // step 2: reverse the 2nd half
+            Node prev = null;
+            Node curre = midNode;
+            Node next;
+
+            while(curre != null){
+                next = curre.next;
+                curre.next= prev;
+                prev = curre;
+                curre = next;
+            }
+
+            Node right = prev; //rihgt half Head
+            Node left = head;  //ledt half Head
+
+            // step 3: Check if 1st half(laft) == 2nd half(right)
+
+            while(right != null){
+                if(left.data != right.data){
+                    return false;
+                }
+                left = left.next;
+                right = right.next;
+            }
+            return true;
+        }
+
     public static void main(String[] args) {
         J129_LinkedList_1st ll = new J129_LinkedList_1st();
         // ll.print();
-        ll.addFirst(2);
+        // ll.addFirst(2);
         // ll.print();
-        ll.addFirst(1);
+        // ll.addFirst(1);
         // ll.print();
-        ll.addLast(3);
+        // ll.addLast(3);
         // ll.print();
-        ll.addLast(4);
-        ll.add(0, 9);
-        ll.print();
+        // ll.addLast(4);
+        // ll.add(4, 5);
+        // ll.print();
 
-        System.out.println("size of the LL : "+ll.size);
+        // System.out.println("size of the LL : "+ll.size);
 
-        ll.removeFirst();
-        ll.print();
+        // ll.removeFirst();
+        // ll.print();
 
-        ll.removeLast();
-        ll.print();
-        System.out.println(ll.size);
+        // ll.removeLast();
+        // ll.print();
+        // System.out.println(ll.size);
 
         // System.out.println(ll.itrsearch(3));
         // System.out.println(ll.itrsearch(2));
         // System.out.println(ll.itrsearch(38));
 
-        System.out.println(ll.recSearch(2));
+        // System.out.println(ll.recSearch(2));
+
+        // ll.reverse();
+        // ll.print();
+
+        // ll.deleteNthfromEnd(3);
+        // ll.print();
+
+        ll.addFirst(1);
+        ll.addFirst(2);
+        ll.addFirst(2);
+        ll.addFirst(1);
+
+        System.out.println(ll.chackPalindrom());
     }
 }

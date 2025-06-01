@@ -244,6 +244,20 @@ public class J129_LinkedList_1st {
             return true;
         }
 
+        public boolean findCycle(){
+            Node slow = head;
+            Node fast = head;
+            while(fast != null && fast.next != null){
+                slow = slow.next; // incremet by +1
+                fast = fast.next.next; // increment by +2
+
+                if(slow == fast){
+                    return  true; // the cycle is found
+                }
+            }
+            return false; // the cycle is not found
+        }
+
     public static void main(String[] args) {
         J129_LinkedList_1st ll = new J129_LinkedList_1st();
         // ll.print();
@@ -278,11 +292,20 @@ public class J129_LinkedList_1st {
         // ll.deleteNthfromEnd(3);
         // ll.print();
 
-        ll.addFirst(1);
-        ll.addFirst(2);
-        ll.addFirst(2);
-        ll.addFirst(1);
+        // ll.addFirst(1);
+        // ll.addFirst(2);
+        // ll.addFirst(2);
+        // ll.addFirst(1);
 
-        System.out.println(ll.chackPalindrom());
+        // System.out.println(ll.chackPalindrom());
+
+        head = new Node(1);
+        head.next = new Node(2);
+        head.next.next = new Node(3);
+        head.next.next.next = new Node(4);
+        head.next.next.next.next = head;
+        
+        System.out.println(ll.findCycle());
+
     }
 }

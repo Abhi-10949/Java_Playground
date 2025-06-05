@@ -1,8 +1,4 @@
 
-
-
-
-
 public class J129_LinkedList_1st {
     public static class Node{
         int data;
@@ -244,7 +240,7 @@ public class J129_LinkedList_1st {
             return true;
         }
 
-        public boolean findCycle(){
+        public static boolean findCycle(){
             Node slow = head;
             Node fast = head;
             while(fast != null && fast.next != null){
@@ -256,6 +252,38 @@ public class J129_LinkedList_1st {
                 }
             }
             return false; // the cycle is not found
+        }
+
+        // removing the cycle form the ll
+        public static void removeCyle(){
+            // detect cylce 
+            Node slow = head;
+            Node fast = head;
+            boolean cycle = false;
+
+            while(fast != null && fast.next != null){
+                slow = slow.next;
+                fast = fast.next.next;
+
+                if(slow == fast){
+                    cycle = true;
+                    break;
+                }
+            }
+            if(cycle == false){
+                return;
+            }
+            // find meeting point
+            slow = head;
+            Node prev = null;
+            while(slow != fast){
+                prev = fast;
+                slow = slow.next;
+                fast = fast.next;
+            }
+
+            // remove cycle -> last.next = null
+            prev.next = null;
         }
 
     public static void main(String[] args) {
@@ -303,9 +331,12 @@ public class J129_LinkedList_1st {
         head.next = new Node(2);
         head.next.next = new Node(3);
         head.next.next.next = new Node(4);
-        head.next.next.next.next = head;
-        
+        head.next.next.next.next = head.next;
+
+        System.out.println(ll.findCycle());
+        removeCyle();
         System.out.println(ll.findCycle());
 
+        ll.print();
     }
 }

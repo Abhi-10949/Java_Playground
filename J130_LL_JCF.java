@@ -12,7 +12,7 @@ public class J130_LL_JCF {
         ll.addFirst(0);
         System.out.println(ll); 
 
-        // remove
+        // remove 
         ll.removeLast();
         ll.removeFirst();
         System.out.println(ll);

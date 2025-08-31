@@ -177,6 +177,18 @@ public class J129_LinkedList_1st {
         return;
     }
 
+    // slow - fast approach
+    public Node findMin(Node head){
+        Node slow = head;
+        Node fast = head;
+
+        while(fast != null && fast.next != null){
+            slow = slow.next; // +1
+            fast = fast.next.next; //+2
+        }
+        return slow;
+    }
+
     public static void main(String []args){
         J129_LinkedList_1st ll = new J129_LinkedList_1st();
         // ll.print();

@@ -253,8 +253,61 @@ public class J129_LinkedList_1st {
         return merge(newLeft, newRight);
     }
 
+    public void zigZag(){
+        // step 1: find mid
+        Node slow = head;
+        Node fast = head;
+        while(fast != null && fast.next!= null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        Node mid = slow;
+
+        // step 2: reverse 2nd half
+        Node curr = mid.next; // divide in two part's
+        mid.next = null; // break both the part
+        Node prev = null;
+        Node next;
+        
+        while(curr!= null){
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+
+        Node left = head;
+        Node right = prev;
+        Node nextL, nextR;
+
+        // step 3: alternate merging - zig zag merge
+        while(left != null && right != null){
+            nextL = left.next;
+            left.next = right;
+            nextR = right.next;
+            right.next = nextL;
+
+            // updation
+            right = nextR;
+            left = nextL;
+        }
+    }
+
     public static void main(String []args){
         J129_LinkedList_1st ll = new J129_LinkedList_1st();
+        ll.addLast(1);
+        ll.addLast(2);
+        ll.addLast(3);
+        ll.addLast(4);
+        ll.addLast(5);
+        ll.addLast(6);
+        ll.addLast(7);
+        ll.print();
+        
+        ll.zigZag();
+        ll.print();
+
+
         // ll.print();
         // ll.addFirst(2);
         // ll.addFirst(1);
@@ -262,15 +315,15 @@ public class J129_LinkedList_1st {
         // ll.addLast(5);
         // ll.add(2,3);
 
-        ll.addFirst(1);
-        ll.addFirst(2);
-        ll.addFirst(3);
-        ll.addFirst(4);
-        ll.addFirst(5);
-        ll.print();
+        // ll.addFirst(1);
+        // ll.addFirst(2);
+        // ll.addFirst(3);
+        // ll.addFirst(4);
+        // ll.addFirst(5);
+        // ll.print();
 
-        ll.head = ll.mergeSort(head);
-        ll.print();
+        // ll.head = ll.mergeSort(head);
+        // ll.print();
 
         // ll.revers();
         // ll.print();

@@ -1,3 +1,1 @@
-)){
-        //     System.out.println(st.pop());
-        // }
+j=j/i
